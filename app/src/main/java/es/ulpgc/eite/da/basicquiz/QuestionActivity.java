@@ -166,7 +166,21 @@ public class QuestionActivity extends AppCompatActivity {
         //  la pantalla "Stats" debe devolver un resultado a la pantalla "Question"
         //  para que esta última finalice la app Quiz
 
+        if (requestCode == STATS_REQUEST && resultCode == RESULT_OK && intent != null) {
+            boolean restart = intent.getBooleanExtra(StatsActivity.EXTRA_RESET, false);
+            if (restart){
+                questionIndex = 0;
+                correctAnswers = 0;
+                totalQuestions = 0;
+                nextButtonEnabled = false;
+                updateLayoutContent();
+            }
+            boolean close = intent.getBooleanExtra(StatsActivity.EXTRA_EXIT, false);
+            if (close){
+                finish();
+            }
 
+        }
 
         if (requestCode == CHEAT_REQUEST && resultCode == RESULT_OK && intent != null) {
 
