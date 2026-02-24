@@ -73,6 +73,11 @@ public class StatsActivity extends AppCompatActivity {
         //  la pantalla "Stats" debe devolver un resultado a la pantalla "Question"
         //  para que esta última deje el estado de la pantalla como está pero
         //  desactive el botón de "Next" para impedir avanzar a la siguiente pregunta
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_BACK, true);
+        setResult(RESULT_OK, intent);
+        Log.d(TAG, "Se cierra Stats");
+        finish();
 
     }
 
@@ -83,7 +88,10 @@ public class StatsActivity extends AppCompatActivity {
         // TODO:
         //  la pantalla "Stats" debe devolver un resultado a la pantalla "Question"
         //  para que esta última reinicie el Quiz
-
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_RESET, true);
+        setResult(RESULT_OK, intent);
+        Log.d(TAG, "Se reinicia el Quiz");
     }
 
 
@@ -93,7 +101,11 @@ public class StatsActivity extends AppCompatActivity {
         // TODO:
         //  la pantalla "Stats" debe devolver un resultado a la pantalla "Question"
         //  para que esta última finalice la app Quiz
-
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_EXIT, true);
+        setResult(RESULT_OK, intent);
+        finish();
+        Log.d(TAG, "Se cierra Stats y luego la app");
     }
 
 
