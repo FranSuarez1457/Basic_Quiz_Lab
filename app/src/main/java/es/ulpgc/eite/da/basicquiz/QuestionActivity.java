@@ -169,6 +169,7 @@ public class QuestionActivity extends AppCompatActivity {
         if (requestCode == STATS_REQUEST && resultCode == RESULT_OK && intent != null) {
             boolean restart = intent.getBooleanExtra(StatsActivity.EXTRA_RESET, false);
             if (restart){
+                Log.d(TAG, "El quiz será reiniciado");
                 questionIndex = 0;
                 correctAnswers = 0;
                 totalQuestions = 0;
@@ -177,6 +178,7 @@ public class QuestionActivity extends AppCompatActivity {
             }
             boolean close = intent.getBooleanExtra(StatsActivity.EXTRA_EXIT, false);
             if (close){
+                Log.d(TAG, "La app será cerrada");
                 finish();
             }
 
