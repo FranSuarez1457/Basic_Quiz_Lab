@@ -201,9 +201,20 @@ public class QuestionActivity extends AppCompatActivity {
             //  utilizando el codigo que contiene el "if" ahora
 
             if (answerCheated) {
+                if (questionIndex == questionsArray.length - 1){ //Si estamos en la última pregunta desactivamos los botones menos stats
+                    Log.d(TAG, "Es la última pregunta, se desactivaran todos los botones menos stats");
+                    falseButton.setEnabled(false);
+                    trueButton.setEnabled(false);
+                    cheatButton.setEnabled(false);
+                    nextButton.setEnabled(false);
+                    statsButton.setEnabled(true);
 
-                nextButtonEnabled = true;
-                onNextButtonClicked();
+                    statsButtonEnabled = true;
+                    nextButtonEnabled = false;
+                } else { //Si no es la última pregunta, clickamos automaticamente el boton next.
+                    Log.d(TAG, "No es la última pregunta, pasaremos a la siguiente");
+                    onNextButtonClicked();
+                }
             }
 
         }
