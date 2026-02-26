@@ -92,6 +92,7 @@ public class StatsActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_RESET, true);
         setResult(RESULT_OK, intent);
         Log.d(TAG, "Se reinicia el Quiz");
+        finish();
 
     }
 

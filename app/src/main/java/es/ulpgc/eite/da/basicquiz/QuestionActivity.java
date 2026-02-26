@@ -245,6 +245,8 @@ public class QuestionActivity extends AppCompatActivity {
         //  y de respuestas acertadas
 
         Intent intent = new Intent(this, StatsActivity.class);
+        intent.putExtra(StatsActivity.EXTRA_QUESTIONS, totalQuestions);
+        intent.putExtra(StatsActivity.EXTRA_ANSWERS, correctAnswers);
         startActivityForResult(intent, STATS_REQUEST); // Código de solicitud
     }
 
