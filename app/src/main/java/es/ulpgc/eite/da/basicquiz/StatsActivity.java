@@ -99,15 +99,10 @@ public class StatsActivity extends AppCompatActivity {
 
     private void onExitButtonClicked() {
         Log.d(TAG, "onExitButtonClicked");
-
         // TODO:
         //  la pantalla "Stats" debe devolver un resultado a la pantalla "Question"
         //  para que esta última finalice la app Quiz
-        Intent intent = new Intent();
-        intent.putExtra(EXTRA_EXIT, true);
-        setResult(RESULT_OK, intent);
-        finish();
-        Log.d(TAG, "Se cierra Stats y luego la app");
+        finishAffinity();
     }
 
 

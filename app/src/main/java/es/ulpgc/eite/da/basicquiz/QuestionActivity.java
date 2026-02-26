@@ -177,6 +177,7 @@ public class QuestionActivity extends AppCompatActivity {
                 statsButton.setEnabled(true);
                 statsButtonEnabled = true;
                 nextButtonEnabled = false;
+                return;
             }
 
             boolean restart = intent.getBooleanExtra(StatsActivity.EXTRA_RESET, false);
@@ -187,21 +188,14 @@ public class QuestionActivity extends AppCompatActivity {
                 totalQuestions = 0;
                 nextButtonEnabled = false;
                 updateLayoutContent();
-            }
-
-            boolean close = intent.getBooleanExtra(StatsActivity.EXTRA_EXIT, false);
-            if (close){
-                Log.d(TAG, "La app será cerrada");
-                finish();
+                return;
             }
 
         }
 
         if (requestCode == CHEAT_REQUEST && resultCode == RESULT_OK && intent != null) {
 
-            boolean answerCheated = intent.getBooleanExtra(
-                CheatActivity.EXTRA_CHEATED, false
-            );
+            boolean answerCheated = intent.getBooleanExtra(CheatActivity.EXTRA_CHEATED, false);
 
             //Log.d(TAG, "answerCheated: " + answerCheated);
 
