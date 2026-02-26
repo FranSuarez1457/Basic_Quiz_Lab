@@ -167,6 +167,18 @@ public class QuestionActivity extends AppCompatActivity {
         //  para que esta última finalice la app Quiz
 
         if (requestCode == STATS_REQUEST && resultCode == RESULT_OK && intent != null) {
+
+            boolean retroceder = intent.getBooleanExtra(StatsActivity.EXTRA_BACK, false);
+            if(retroceder){
+                nextButton.setEnabled(false);
+                trueButton.setEnabled(false);
+                falseButton.setEnabled(false);
+                cheatButton.setEnabled(false);
+                statsButton.setEnabled(true);
+                statsButtonEnabled = true;
+                nextButtonEnabled = false;
+            }
+
             boolean restart = intent.getBooleanExtra(StatsActivity.EXTRA_RESET, false);
             if (restart){
                 Log.d(TAG, "El quiz será reiniciado");
@@ -176,6 +188,7 @@ public class QuestionActivity extends AppCompatActivity {
                 nextButtonEnabled = false;
                 updateLayoutContent();
             }
+
             boolean close = intent.getBooleanExtra(StatsActivity.EXTRA_EXIT, false);
             if (close){
                 Log.d(TAG, "La app será cerrada");
